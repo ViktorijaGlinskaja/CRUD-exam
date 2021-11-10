@@ -1,0 +1,92 @@
+{
+    "apartments": [
+        {
+            "id": "1",
+            "type": "house",
+            "owner": {
+                "fullname": "Terrance C McAllister",
+                "email": "vhfw3ztls2l@temporary-mail.net",
+                "phone": "262-609-1120"
+            },
+            "roomCount": 4,
+            "squares": 120,
+            "address": {
+                "city": "Ashburn",
+                "country": "USA",
+                "street": "Fairfield Road",
+                "number": "4468"
+            },
+            "price": {
+                "amount": 380000,
+                "currency": "$"
+            },
+            "imgSrc": "assets/house.jpeg"
+        },
+        {
+            "id": "2",
+            "type": "cottage",
+            "owner": {
+                "fullname": "Raul J Ward",
+                "email": "qszpmj7mjie@temporary-mail.net",
+                "phone": "717-438-2278"
+            },
+            "roomCount": 3,
+            "squares": 89,
+            "address": {
+                "city": "Ickesburg",
+                "country": "USA",
+                "street": "Saint James Drive",
+                "number": "2519"
+            },
+            "price": {
+                "amount": 240000,
+                "currency": "$"
+            },
+            "imgSrc": "assets/cottage.jpg"
+        },
+        {
+            "id": "3",
+            "type": "flat",
+            "owner": {
+                "fullname": "William C Marquez",
+                "email": "wfnriz2b6c@temporary-mail.net",
+                "phone": "858-923-2394"
+            },
+            "roomCount": 2,
+            "squares": 75,
+            "address": {
+                "city": "San Diego",
+                "country": "USA",
+                "street": "Carson Street",
+                "number": "1140"
+            },
+            "price": {
+                "amount": 220000,
+                "currency": "$"
+            },
+            "imgSrc": "assets/flat.jpg"
+        },
+        {
+            "id": "4",
+            "type": "flat",
+            "owner": {
+                "fullname": "Julia P Vogel",
+                "email": "w1v4vnlw3rh@temporary-mail.net",
+                "phone": "02994 42 09006"
+            },
+            "roomCount": 2,
+            "squares": 65,
+            "address": {
+                "city": "Lichtenau",
+                "country": "Germany",
+                "street": "Landhausstraße",
+                "number": "91"
+            },
+            "price": {
+                "amount": 220000,
+                "currency": "€"
+            },
+            "imgSrc": "assets/germany.jpg"
+        }
+    ]
+}
