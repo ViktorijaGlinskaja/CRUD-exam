@@ -15,22 +15,28 @@ class ApartmentGridComponent {
         console.error(error);
     }
 
+    wrapChild = (htmlElement) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'col-12 col-sm-6 col-lg-4 col-xl-3';
+        wrapper.append(htmlElement);
+        return wrapper;
+    }
+
     init = () => {
         API.fetchApartments(this.saveData, this.showError);
-        this.htmlElement.className = 'd-flex gap-3 justify-content-center';
+        this.htmlElement.className = 'row g-3 justify-content-center';
         this.render();
     }
+
     render = () => {
         if (this.state.apartments.length === 0) {
-            this.htmlElement.innerHTML = 'siunčiama...';
+            this.htmlElement.innerHTML = '<img src="assets/loading.gif" style="width: 400px" />';
         } else {
-            this.htmlElement.innerHTML = 'parsiųsta!';
-            // const cards = this.state.apartments.map(({ id, ...cardProps }) => new CarCardComponent({
-            //     ...cardProps,
-            //     onDelete: () => this.deleteApartment(id)
-            // }));
-            // const cardElements = cards.map(component => component.htmlElement);
-            // this.htmlElement.append(...cardElements);
+            this.htmlElement.innerHTML = '';
+            const cards = this.state.apartments.map((cardProps) => new ApartmentCardComponent(cardProps));
+            const cardElements = cards.map(component => component.htmlElement);
+            const wrappedElements = cardElements.map(this.wrapChild);
+            this.htmlElement.append(...wrappedElements);
         }
     }
 }
