@@ -16,13 +16,13 @@ class API {
     };
 }
 
-API.fetchApartments(
-    (info)=>console.log('info gavom', info),
-    (error)=>console.log('gavom error', error)
-)
-;
-API.deleteApartment(
-    (info)=>console.log('info gavom', info),
-    (error)=>console.log('gavom error', error),
-    '1'
-)
+// API.fetchApartments(
+//     (info)=>console.log('info gavom', info),
+//     (error)=>console.log('gavom error', error)
+// )
+// ;
+// API.deleteApartment(
+//     (info)=>console.log('info gavom', info),
+//     (error)=>console.log('gavom error', error),
+//     '1'
+// )
