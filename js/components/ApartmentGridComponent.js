@@ -15,6 +15,17 @@ class ApartmentGridComponent {
         console.error(error);
     }
 
+    fetchApar = () => API.fetchApartments(this.saveData, this.showError);
+
+    deleteApar = (id) => {
+        API.deleteApartment(
+            this.fetchApar,
+            this.showError,
+            id
+        )
+        this.render();
+    }
+
     wrapChild = (htmlElement) => {
         const wrapper = document.createElement('div');
         wrapper.className = 'col-12 col-sm-6 col-lg-4 col-xl-3';
@@ -33,8 +44,10 @@ class ApartmentGridComponent {
             this.htmlElement.innerHTML = '<img src="assets/loading.gif" style="width: 400px" />';
         } else {
             this.htmlElement.innerHTML = '';
-            const cards = this.state.apartments.map((cardProps) => new ApartmentCardComponent(cardProps));
-            const cardElements = cards.map(component => component.htmlElement);
+            const cards = this.state.apartments.map(({ id, ...cardProps }) => new ApartmentCardComponent({
+                ...cardProps,
+                onDelete: () => this.deleteApar(id)
+            }));            const cardElements = cards.map(component => component.htmlElement);
             const wrappedElements = cardElements.map(this.wrapChild);
             this.htmlElement.append(...wrappedElements);
         }
