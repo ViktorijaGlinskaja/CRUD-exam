@@ -23,7 +23,7 @@ class ApartmentCardComponent {
     
         this.htmlElement.className = 'bg-gradient-light card p-4 shadow-sm position-relative gap-3';
         this.htmlElement.innerHTML = `
-        <img src="${imgSrc}" class="card-img-top" alt="...">
+        <img src="${imgSrc}" style="height: 150px; object-fit: cover" class="card-img-top" alt="...">
         <div class="card-body">
           <h2 class="card-title h5"> ${addressApartment}</h2>
           <span class="card-text h6 fw-light"><strong>Room count: </strong>${roomCount}</span>
