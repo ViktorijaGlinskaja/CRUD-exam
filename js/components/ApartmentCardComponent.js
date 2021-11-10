@@ -15,12 +15,12 @@ class ApartmentCardComponent {
     };
 
     init = () => {
-        const { type, address, roomCount, squares, owner, price, imgSrc } = this.props;
+        const { type, address, roomCount, squares, owner, price, imgSrc, onDelete } = this.props;
         const addressApartment = `${address.street}-${address.number}, ${address.city}, ${address.country} `
         const name = `${owner.fullname}`;
         const mobile = `${owner.phone}`;
         const mail = `${owner.email}`;
-    
+
         this.htmlElement.className = 'bg-gradient-light card p-4 shadow-sm position-relative gap-3';
         this.htmlElement.innerHTML = `
         <img src="${imgSrc}" class="card-img-top" alt="...">
@@ -37,5 +37,7 @@ class ApartmentCardComponent {
           <span class="text-success">${this.convertPrice(price.amount, price.currency)} € </span>
           <button class="btn btn-sm btn-danger position-absolute top-0 end-0 mt-4 me-4">✕</button>
         </div> `
+        const del = this.htmlElement.querySelector('.btn');
+        del.addEventListener('click', onDelete);
     }
 }

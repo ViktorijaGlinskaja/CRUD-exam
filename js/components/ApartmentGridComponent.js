@@ -28,12 +28,25 @@ class ApartmentGridComponent {
         this.render();
     }
 
+    fetchApar = () => API.fetchApartments(this.saveData, this.showError);
+
+    deleteApar = (id) => {
+        API.deleteApartment(
+            this.fetchApar,
+            this.showError,
+            id
+        )
+        this.render();
+    }
     render = () => {
         if (this.state.apartments.length === 0) {
             this.htmlElement.innerHTML = '<img src="assets/loading.gif" style="width: 400px" />';
         } else {
             this.htmlElement.innerHTML = '';
-            const cards = this.state.apartments.map((cardProps) => new ApartmentCardComponent(cardProps));
+            const cards = this.state.apartments.map(({ id, ...cardProps }) => new ApartmentCardComponent({
+                ...cardProps,
+                onDelete: () => this.deleteApar(id)
+            }));
             const cardElements = cards.map(component => component.htmlElement);
             const wrappedElements = cardElements.map(this.wrapChild);
             this.htmlElement.append(...wrappedElements);
